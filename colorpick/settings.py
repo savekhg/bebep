@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'brand'
+    'web',
+    'brand',
 ]
 
 MIDDLEWARE = [
@@ -76,10 +77,20 @@ WSGI_APPLICATION = 'colorpick.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bebep',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': '52.79.122.78',
+        'PORT': '5432',
     }
+
 }
 
 
