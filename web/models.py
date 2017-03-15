@@ -11,15 +11,15 @@ from django.db import models
 
 
 class CarImgLikeViewTb(models.Model):
-    member_id = models.CharField(db_column='MEMBER_ID', max_length=255)  # Field name made lowercase.
-    vh_img_id = models.CharField(db_column='VH_IMG_ID', max_length=20)  # Field name made lowercase.
+    member_id = models.CharField(db_column='MEMBER_ID', primary_key=True, max_length=255)  # Field name made lowercase.
+    vh_img_id = models.CharField(db_column='VH_IMG_ID', primary_key=True, max_length=20)  # Field name made lowercase.
     bool_like = models.IntegerField(db_column='BOOL_LIKE', blank=True, null=True)  # Field name made lowercase.
     hits = models.IntegerField(db_column='HITS', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'CAR_IMG_LIKE_VIEW_TB'
-        unique_together = (('member_id', 'vh_img_id'),)
+        #unique_together = (('member_id', 'vh_img_id'),)
 
 
 class CommonCodeTb(models.Model):
@@ -54,15 +54,15 @@ class MemberTb(models.Model):
 
 
 class VehicleDataTb(models.Model):
-    model_cd = models.CharField(db_column='MODEL_CD', max_length=4)  # Field name made lowercase.
-    detail_model_cd = models.CharField(db_column='DETAIL_MODEL_CD', max_length=4)  # Field name made lowercase.
+    model_cd = models.CharField(db_column='MODEL_CD', primary_key=True, max_length=4)  # Field name made lowercase.
+    detail_model_cd = models.CharField(db_column='DETAIL_MODEL_CD', primary_key=True, max_length=4)  # Field name made lowercase.
     vh_info_cd = models.CharField(db_column='VH_INFO_CD', max_length=4)  # Field name made lowercase.
     vh_info_value = models.CharField(db_column='VH_INFO_VALUE', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'VEHICLE_DATA_TB'
-        unique_together = (('model_cd', 'detail_model_cd', 'vh_info_cd'),)
+        #unique_together = (('model_cd', 'detail_model_cd', 'vh_info_cd'),)
 
 
 class VehicleImgTb(models.Model):
