@@ -11,3 +11,11 @@ class HomeView(TemplateView):
         context['brandCommonCode'] = CommonCodeTb.objects.filter(upper_common_cd='00', user='1').order_by('order')
 
         return context
+
+
+class TestView(TemplateView):
+    template_name = 'test.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(TestView, self).get_context_data(**kwargs)
+        return context

@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^$', views.HomeView.as_view(), name='home'),
     url(r'^brand/', include('brand.urls', namespace='brand')),
     url(r'^admin/', admin.site.urls),
+    url(r'^test/', views.TestView.as_view(), name='test'),
 ]
