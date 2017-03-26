@@ -18,4 +18,5 @@ from brand import views
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^(?P<common_cd>(\w+))/$', views.brandDetailView.as_view(), name='detail'),
 ]

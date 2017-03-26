@@ -85,9 +85,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'bebep',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': '52.79.122.78',
+        'USER': 'bebep',
+        'PASSWORD': 'bebep123',
+        'HOST': 'bebepdb.cadl82fap4pj.ap-northeast-2.rds.amazonaws.com',
         'PORT': '5432',
     }
 

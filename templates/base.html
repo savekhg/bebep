@@ -127,7 +127,7 @@
 
                   {% for brand_cd in brandCommonCode %}
                       <li style="float:left;">
-				    <div class="blogostyle"><a href="/brand/">
+				    <div class="blogostyle"><a href="{% url 'brand:detail' common_cd=brand_cd.common_cd %}">
 				    <img alt="" src="https://s3.ap-northeast-2.amazonaws.com/bebep/{{ brand_cd.common_cd }}.png"></a></div></li>
 
                   {% endfor %}
