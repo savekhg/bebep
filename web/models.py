@@ -31,7 +31,7 @@ class CommonCodeTb(models.Model):
     upper_group_cd = models.CharField(db_column='UPPER_GROUP_CD', max_length=4, blank=True, null=True)  # Field name made lowercase.
     attribute = models.CharField(db_column='ATTRIBUTE', max_length=255, blank=True, null=True)  # Field name made lowercase.
     order = models.IntegerField(db_column='ORDER', blank=True, null=True)  # Field name made lowercase.
-    user = models.IntegerField(db_column='USER', blank=True, null=True)  # Field name made lowercase.
+    use = models.IntegerField(db_column='USE', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False

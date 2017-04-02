@@ -4,22 +4,26 @@ from django.core.urlresolvers import reverse
 
 # Create your views here.
 from web.models import CommonCodeTb
-from django.shortcuts import get_object_or_404
+from colorpick.views import get_brand_list_data
 
-class IndexView(TemplateView) :
+
+class IndexView(TemplateView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['ClassCommonCode'] = CommonCodeTb.objects.filter(upper_common_cd='01', group_cd='BZ', user='1').order_by('order')
+        context = get_brand_list_data(context)
 
         return context
 
-class brandDetailView(TemplateView) :
+
+class BrandDetailView(TemplateView):
     template_name = 'detail.html'
 
     def get_context_data(self, **kwargs):
-        context = super(brandDetailView, self).get_context_data(**kwargs)
+        context = super(BrandDetailView, self).get_context_data(**kwargs)
         context['ClassCommonCode'] = CommonCodeTb.objects.filter(upper_common_cd='01', group_cd=context['common_cd'],
-                                                                 user='1').order_by('order')
+                                                                 use='1').order_by('order')
+        context = get_brand_list_data(context)
+
         return context
