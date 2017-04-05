@@ -82,8 +82,6 @@
             margin-bottom: 0px;
         }
 
-
-
         .col-sm-4 img {
             width: 270px;
             height: 200px;
@@ -104,63 +102,62 @@
 
     </style>
 </head>
+
 <body>
+    <div id="navbar">
+        {% block navbar %}
+            <nav class="navbar navbar-inverse navbar-fixed-top" style="z-index:1; opacity:0.7;">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="{% url 'home' %}" style="color:red;">Logo</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" id="/brand/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"{% if '/brand/' in request.path %}style="color:gold; background-color:transparent;" {% endif %}>brand</a>
+                                <ul class="dropdown-menu" role="menu" style="width:500px">
 
-<div id="navbar">
-    {% block navbar %}
-        <nav class="navbar navbar-inverse navbar-fixed-top" style="z-index:1; opacity:0.7;">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{% url 'home' %}" style="color:red;">Logo</a>
+                                    {% for brand_cd in BrandCommonCode %}
+                                        <li style="float:left;">
+                                            <div class="blogostyle">
+                                                <a href="{% url 'brand:detail' brand_cd=brand_cd.common_cd %}">
+                                                <img alt="" src="https://s3.ap-northeast-2.amazonaws.com/bebep/MENU_IMG/{{brand_cd.common_cd}}_SUB_MENU.png"></a>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+
+                                </ul>
+                            </li>
+                            <li class ="dropdown">
+                                <a href="#">VS</a></li>
+                            <li class ="dropdown">
+                                <a href="#">My list</a>
+                            </li>
+                            <!--<li><a href="#">Contact</a></li>-->
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" id="/brand/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"{% if '/brand/' in request.path %}style="color:gold; background-color:transparent;" {% endif %}>brand</a>
-                            <ul class="dropdown-menu" role="menu" style="width:500px">
+            </nav>
+        {% endblock %}
+    </div>
 
-                                {% for brand_cd in BrandCommonCode %}
-                                    <li style="float:left;">
-                                        <div class="blogostyle"><a href="{% url 'brand:detail' brand_cd=brand_cd.common_cd %}">
-                                            <img alt="" src="https://s3.ap-northeast-2.amazonaws.com/bebep/MENU_IMG/{{brand_cd.common_cd}}_SUB_MENU.png"></a>
-                                        </div>
-                                    </li>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
 
-                                {% endfor %}
-
-
-                            </ul>
-                        </li>
-                        <li class ="dropdown"><a href="#">VS</a></li>
-                        <li class ="dropdown"><a href="#">My list</a></li>
-                        <!--<li><a href="#">Contact</a></li>-->
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    {% endblock %}
-</div>
-
-<div id="content">
-    {% block content %}
-    {% endblock %}
-</div>
-
-<div id="footer">
-    {% block footer %}
-        <footer class="container-fluid text-center">
-            <p>Footer Text</p>
-        </footer>
-    {% endblock %}
-</div>
-
+    <div id="footer">
+        {% block footer %}
+            <footer class="container-fluid text-center">
+                <p>Footer Text</p>
+            </footer>
+        {% endblock %}
+    </div>
 </body>
+
 </html>

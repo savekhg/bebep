@@ -3,31 +3,31 @@
     {% load static %}
     <div id="myCarousel" class="carousel slide" data-ride="carousel" style="top: -50px;">
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-          <img src="https://s3.ap-northeast-2.amazonaws.com/bebep/Brand/Welcome_{{brand_cd}}.jpg">
-        <div class="carousel-caption">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="https://s3.ap-northeast-2.amazonaws.com/bebep/Brand/Welcome_{{brand_cd}}.jpg">
+                <div class="carousel-caption">
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-</div>
 
-<div class="container text-center">
-    <div class="row">
-        {% for model_cd in ModelCommonCode %}
-            <div class="col-sm-4">
-              <img src="https://s3.ap-northeast-2.amazonaws.com/bebep/Brand/{{brand_cd}}_{{model_cd.common_cd}}.png"
-                   class="" style="width:100%" alt="Image">
-              <p>{{ model_cd.common_cd_nm }}</p>
-                {% for detail_model_cd in model_cd.detail_model_cd %}
-                        <a href="{% url 'brand:vehicle_img' detail_model_cd=detail_model_cd.common_cd %}">
+    <div class="container text-center">
+        <div class="row">
+            {% for model_cd in ModelCommonCode %}
+                <div class="col-sm-4">
+                    <img src="https://s3.ap-northeast-2.amazonaws.com/bebep/Brand/{{brand_cd}}_{{model_cd.common_cd}}.png"
+                         class="" style="width:100%" alt="Image">
+                    <p>{{ model_cd.common_cd_nm }}</p>
+                    {% for detail_model_cd in model_cd.detail_model_cd %}
+                        <a href="{% url 'brand:vehicle_img' brand_code=brand_cd detail_model_code=detail_model_cd.common_cd %}">
                             {{detail_model_cd.common_cd_nm}}
                         </a>
                         //
-                {% endfor %}
-            </div>
-        {% endfor %}
-    </div>
-</div><br>
- {% endblock %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div><br>
+{% endblock %}

@@ -66,13 +66,13 @@ class VehicleDataTb(models.Model):
 
 
 class VehicleImgTb(models.Model):
-    vh_img_id = models.CharField(db_column='VH_IMG_ID', primary_key=True, max_length=20)  # Field name made lowercase.
+    vh_img_id = models.CharField(db_column='VH_IMG_ID', primary_key=True, max_length=100)  # Field name made lowercase.
     model_cd = models.CharField(db_column='MODEL_CD', max_length=4, blank=True, null=True)  # Field name made lowercase.
     color_cd = models.CharField(db_column='COLOR_CD', max_length=4, blank=True, null=True)  # Field name made lowercase.
     package_cd = models.CharField(db_column='PACKAGE_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
     angle_cd = models.CharField(db_column='ANGLE_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
     weather_cd = models.CharField(db_column='WEATHER_CD', max_length=20, blank=True, null=True)  # Field name made lowercase.
-    date = models.DateField(db_column='DATE', blank=True, null=True)  # Field name made lowercase.
+    date = models.CharField(db_column='DATE', max_length=20, blank=True, null=True)  # Field name made lowercase.
     update_time = models.DateTimeField(db_column='UPDATE_TIME', blank=True, null=True)  # Field name made lowercase.
     use = models.IntegerField(db_column='USE', blank=True, null=True)  # Field name made lowercase.
 
