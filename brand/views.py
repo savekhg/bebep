@@ -5,7 +5,6 @@ from django.core.urlresolvers import reverse
 # Create your views here.
 from web.models import CommonCodeTb
 from web.models import VehicleImgTb
-from colorpick.views import get_brand_list_data
 
 
 class IndexView(TemplateView):
@@ -52,3 +51,9 @@ class VehicleImgDetailView(TemplateView):
         context = get_brand_list_data(context)
 
         return context
+
+
+def get_brand_list_data(context):
+    context['BrandCommonCode'] = CommonCodeTb.objects.filter(upper_common_cd='00', use='1').order_by('order')
+
+    return context

@@ -19,5 +19,6 @@ from brand import views
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^(?P<brand_cd>(\w+))/$', views.BrandDetailView.as_view(), name='detail'),
-    url(r'^detail/(?P<brand_code>(\w+))/(?P<detail_model_code>(\w+))/$', views.VehicleImgDetailView.as_view(), name='vehicle_img'),
+    url(r'^detail/(?P<brand_code>(\w+))/(?P<detail_model_code>(\w+))/$',
+        views.VehicleImgDetailView.as_view(), name='vehicle_img'),
 ]
